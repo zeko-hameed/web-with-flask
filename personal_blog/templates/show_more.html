@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block blog %}
+<div class="post-detail-container">
+    <article class="post-article">
+        <header class="post-article-header">
+            <h1 class="post-main-title">{{post.name}}</h1>
+            
+            <div class="post-article-meta">
+                <span class="meta-item date-item">📅 {{post.created_at.strftime('%Y-%m-%d')}}</span>
+                {% if post.part %}
+                    <span class="meta-item category-item">📁 قسم: {{post.part.name}}</span>
+                {% endif %}
+            </div>
+        </header>
+
+        <hr class="post-divider">
+
+        <div class="post-article-content">
+            <p>{{post.discription}}</p>
+        </div>
+
+        <hr class="post-divider">
+
+        <footer class="post-article-footer">
+            <a href="{{ url_for('home' ) }}" class="btn-back">
+                <span>←</span> العودة للرئيسية
+            </a>
+        </footer>
+    </article>
+</div>
+{% endblock %}

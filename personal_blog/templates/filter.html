@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block blog %}
+<div class="blog-container">
+    <h1 class="page-title">المقالات بشكل مفلتر</h1>
+    
+    <div class="filter-tags">
+        {% for par in part %}
+            <a href="{{ url_for('parts', id=par.id ) }}" class="tag-btn">{{par.name}}</a>
+        {% endfor %}
+    </div>
+    
+    <hr class="section-divider">
+    
+    <div class="blog-grid">
+        {% for blo in blog_part %}
+
+                <div class="blog-card">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">{{blo.name}}</h3>
+                        <p class="blog-card-text">{{blo.discription}}</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <span class="blog-date">📅 {{blo.created_at.strftime('%Y-%m-%d')}}</span>
+                        <div class="blog-actions"> 
+                            <a href="{{ url_for('update', id=blo.id ) }}" class="action-btn edit-btn">تعديل</a>
+                            <a href="{{ url_for('dell', id_blog=blo.id ) }}" class="action-btn delete-btn">حذف</a>
+                            <a href="{{ url_for('show_more', id_show=blo.id ) }}" class="action-btn edit-btn">المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <h2>لا توجد أي مقالات في هذا القسم حالياً</h2>
+                    <a href="{{ url_for('add_blog' ) }}" class="btn btn-primary">اضغط هنا لإضافة مقال جديد</a>
+                </div>
+           
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

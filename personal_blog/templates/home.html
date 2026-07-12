@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block blog %}
+<div class="blog-container">
+    <h1 class="page-title">المقالات</h1>
+ 
+    <div class="blog-grid">
+        {% if blog %}
+            {% for blo in blog %}
+                <div class="blog-card">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">{{blo.name}}</h3>
+                        <p class="blog-card-text pline">{{blo.discription}}</p>
+                    </div>
+                    
+                    <div class="blog-card-footer">
+                        <div class="blog-meta">
+                            <span class="blog-date">{{blo.created_at.strftime('%Y-%m-%d')}}</span>
+                            <span class="blog-category">📁 قسم {{blo.part.name}}</span>
+                        </div>
+                        
+                        <div class="blog-actions">
+                            <a href="{{ url_for('update', id=blo.id ) }}" class="action-btn edit-btn">تعديل</a>
+                            <a href="{{ url_for('dell', id_blog=blo.id ) }}" class="action-btn delete-btn">حذف</a>
+                            <a href="{{ url_for('show_more', id_show=blo.id ) }}" class="action-btn edit-btn">المزيد</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}   
+        {% else %}
+            <div class="empty-state">
+                <h2>لا توجد أي مقالات في الوقت الحالي</h2>
+                <a href="{{ url_for('add_blog' ) }}" class="btn btn-primary">انقر هنا لإضافة مقال</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

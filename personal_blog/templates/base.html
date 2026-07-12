@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if title %}    
+    <title>P blog - {{title}}</title>
+    {% else %}
+    <title>P blog</title>
+    {% endif %}
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <main class="main-content">
+        {% block blog %}
+            
+        {% endblock %}
+    </main>
+
+    </body>
+</html>

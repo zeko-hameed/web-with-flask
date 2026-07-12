@@ -1,0 +1,607 @@
+/* ==========================================================================
+   1. الإعدادات العامة والمنظومة اللونية (Global Reset & CSS Variables)
+   ========================================================================== */
+:root {
+    /* لوحة الألوان الأساسية - مستوحاة من الأنظمة العالمية الحديثة */
+    --bg-color: #0b0f19;          /* خلفية داكنة عميقة فائقة الجودة */
+    --surface-color: #131c2e;     /* خلفية العناصر والبطاقات */
+    --surface-hover: #1e293b;     /* تأثير التمرير فوق الأسطح */
+    --primary-color: #3b82f6;     /* اللون الهوياتي الأساسي (أزرق تفاعلي) */
+    --primary-hover: #1d4ed8;     /* درجات الضغط المتقدمة */
+    --accent-color: #10b981;      /* لون التمييز الإيجابي (أخضر زمردي) */
+    --accent-hover: #059669;
+    --danger-color: #ef4444;      /* لون الإجراءات الخطرة (أحمر مرجاني) */
+    --danger-hover: #dc2626;
+    
+    /* نصوص الواجهة والتباين العالي */
+    --text-main: #f8fafc;         /* مقروئية تامة بنسبة تباين مدروسة */
+    --text-muted: #94a3b8;        /* النصوص الثانوية والتوضيحية */
+    --text-disabled: #475569;     /* العناصر غير النشطة */
+    
+    /* الحدود والظلال الهيكلية */
+    --border-color: #1e293b;
+    --border-hover: #334155;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.45);
+    
+    /* الخطوط ومواقيت الحركة */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, sans-serif;
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1); /* منحنى حركي طبيعي */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+}
+
+/* ريست متقدم لتوحيد سلوك المتصفحات */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+/* دعم التوجيه التلقائي للموقع بناءً على كود القالب */
+html[dir="rtl"] body { direction: rtl; }
+html[dir="ltr"] body { direction: ltr; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--transition-smooth);
+}
+
+ul, ol { list-style: none; }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   2. الهيدر وشريط التنقل الاحترافي (Navbar with Backdrop Filter)
+   ========================================================================== */
+.main-header {
+    background-color: rgba(19, 28, 46, 0.8); /* تأثير زجاجي شفاف */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--duration-normal);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+}
+
+.brand-logo a {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    position: relative;
+    padding: 0.5rem 0.25rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--text-main);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--duration-fast) var(--transition-smooth);
+}
+
+.nav-item:hover::after, .nav-item.active::after {
+    width: 100%;
+}
+
+/* زر مخصص ومميز داخل الهيدر */
+.spec-nav-item {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--accent-color) !important;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    font-weight: 600;
+    will-change: transform;
+}
+
+.spec-nav-item:hover {
+    background-color: var(--accent-color);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.spec-nav-item::after { display: none; }
+
+/* ==========================================================================
+   3. الحاوية العامة والمحتوى الديناميكي (Main Layout Wrapper)
+   ========================================================================== */
+.main-content {
+    min-height: calc(100vh - 75px);
+    padding: 3rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.75px;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   4. الأزرار العامة فائقة الجودة (Universal Button System)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: 1;
+    white-space: nowrap;
+    transition: all var(--duration-fast) var(--transition-smooth);
+    will-change: transform;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+/* ==========================================================================
+   5. الاستمارات وتجربة المستخدم المتقدمة (Forms & Input Engineering)
+   ========================================================================== */
+.form-container {
+    max-width: 650px;
+    margin: 2rem auto;
+    padding: 3rem;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.75rem;
+}
+
+.form-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+}
+
+/* معالجة شاملة لكافة أنواع المدخلات بما فيها حقول الجداول والقوائم المنسدلة */
+.form-input, select, textarea {
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* تحسين تجربة الوصول للمستخدم Focus-visible */
+.form-input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* تنسيق دقيق لمعالجة الأخطاء */
+.form-input.input-error, textarea.input-error {
+    border-color: var(--danger-color);
+}
+
+.form-input.input-error:focus, textarea.input-error:focus {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.error-text {
+    color: #f87171;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.submit-group { margin-top: 2.5rem; margin-bottom: 0; }
+.btn-submit { width: 100%; padding: 1rem; font-size: 1.05rem; }
+
+/* ==========================================================================
+   6. شبكة تصفية الأقسام (Filter System)
+   ========================================================================== */
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+}
+
+.tag-btn {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: all var(--duration-fast) var(--transition-smooth);
+}
+
+.tag-btn:hover, .tag-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 3rem 0;
+}
+
+/* ==========================================================================
+   7. نظام بطاقات المقالات (Advanced Card Grid Ecosystem)
+   ========================================================================== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.blog-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform var(--duration-normal) var(--transition-smooth), 
+                box-shadow var(--duration-normal) var(--transition-smooth),
+                border-color var(--duration-normal);
+    will-change: transform, box-shadow;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-lg);
+}
+
+.blog-card-body { padding: 2rem; }
+
+.blog-card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.blog-card-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    display: -webkit-box; /* حصر النصوص الطويلة جداً في 4 أسطر للحفاظ على ثبات الطول */
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ميتاداتا ذكية وتذييل البطاقات */
+.blog-card-footer {
+    padding: 1.25rem 2rem;
+    background-color: rgba(11, 15, 25, 0.4);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.blog-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.blog-date { font-size: 0.8rem; color: var(--text-muted); }
+
+.blog-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* هندسة أزرار التحكم الفردية */
+.blog-actions { display: flex; gap: 0.75rem; }
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+    transition: all var(--duration-fast) var(--transition-smooth);
+}
+
+.edit-btn {
+    background-color: rgba(59, 130, 246, 0.08);
+    color: var(--primary-color);
+    border-color: rgba(59, 130, 246, 0.15);
+}
+
+.edit-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.delete-btn {
+    background-color: rgba(239, 68, 68, 0.08);
+    color: var(--danger-color);
+    border-color: rgba(239, 68, 68, 0.15);
+}
+
+.delete-btn:hover {
+    background-color: var(--danger-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+/* ==========================================================================
+   8. واجهة غياب البيانات (Empty State Styling)
+   ========================================================================== */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: var(--surface-color);
+    border: 2px dashed var(--border-color);
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.empty-state h2 {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   9. التجاوب الكامل وقواعد الشاشات (Fluid Responsive Design)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .blog-grid { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.75rem; }
+}
+
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 1.25rem; padding: 1rem; }
+    .nav-links { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+    .form-container { padding: 2rem 1.5rem; }
+    .page-title { font-size: 1.85rem; }
+}
+
+@media (max-width: 480px) {
+    .main-content { padding: 2rem 1rem; }
+    .blog-card-footer { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .blog-actions { width: 100%; justify-content: flex-end; }
+    .tag-btn { width: 100%; text-align: center; } /* يسهل الضغط بالإصبع على الهواتف */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   10. صفحة تفاصيل المقال بالكامل (Single Post View)
+   ========================================================================== */
+
+/* الحاوية الخارجية لصفحة المقال */
+.post-detail-container {
+    max-width: 100%; /* عرض مثالي ومريح جداً لعين القارئ */
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+/* صندوق المقال الرئيسي */
+.post-article {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+}
+
+/* عنوان المقال الضخم */
+.post-main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.5px;
+}
+
+/* ميتاداتا المقال (التاريخ والقسم) */
+.post-article-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.category-item {
+    color: var(--primary-color); /* تمييز القسم باللون الأزرق */
+    background-color: rgba(59, 130, 246, 0.08);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+}
+
+/* الفواصل الداخلية الناعمة */
+.post-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 2rem 0;
+}
+
+/* تنسيق نص المقال الداخلي */
+.post-article-content {
+    font-size: 1.15rem; /* حجم خط ممتاز ومريح للقراءة الطويلة */
+    line-height: 1.85; /* مسافة أسطر تمنع تداخل الكلمات */
+    color: #e2e8f0; /* لون نص فاتح قليل التباين عن الأبيض لراحة العين */
+    text-align: justify; /* توزيع متناسق للسطور */
+    white-space: pre-line; /* يحافظ على الفراغات والأسطر الجديدة المكتوبة في النص */
+}
+
+/* تذييل المقال وزر العودة */
+.post-article-footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(11, 15, 25, 0.3);
+    transition: all var(--duration-fast) var(--transition-smooth);
+}
+
+/* تحريك السهم والزر عند تمرير الفأرة */
+.btn-back:hover {
+    color: var(--text-main);
+    border-color: var(--border-hover);
+    background-color: var(--bg-color);
+    transform: translateX(4px); /* حركة خفيفة لجهة اليمين بحسب اتجاه السهم العربي */
+}
+
+/* ==========================================================================
+   التجاوب مع الشاشات الصغيرة للمقال
+   ========================================================================== */
+@media (max-width: 768px) {
+    .post-article {
+        padding: 2rem 1.5rem; /* تقليص الحواف الداخلية على الهواتف */
+    }
+    
+    .post-main-title {
+        font-size: 1.85rem; /* تصغير العنوان ليتناسب مع شاشة الهاتف */
+    }
+}
+
+
+
+
+.pline{
+    display: -webkit-box !important;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.8;
+}

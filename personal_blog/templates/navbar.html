@@ -1,0 +1,22 @@
+<header class="main-header">
+    <nav class="navbar">
+        <div class="brand-logo">
+            <a href="{{ url_for('home' ) }}">مدونتي الرقمية</a>
+        </div>
+        
+        <ul class="nav-links">
+            <li>
+                <a href="{{ url_for('home' ) }}" class="nav-item">المقالات</a>
+            </li>
+            <li>
+                <a href="{{ url_for('parts', id=1 ) }}" class="nav-item">فرز المقالات</a>
+            </li>
+            <li>
+                <a href="{{ url_for('add_blog' ) }}" class="nav-item">إضافة مقال جديد</a>
+            </li>
+            <li>
+                <a href="{{ url_for('add_part' ) }}" class="nav-item spec-nav-item">إضافة قسم جديد</a>
+            </li>
+        </ul>
+    </nav>
+</header>
