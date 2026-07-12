@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block list %}
+<div class="form-container">
+    <h1 class="page-title">تعديل المهمة</h1>
+    
+    <form action="" method="post" novalidate class="custom-form">
+        {{ form.csrf_token }}
+        
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }}
+            {% if form.title.errors %}
+                {{ form.title(class="form-input input-error", placeholder="تعديل عنوان المهمة...") }}
+                {% for err in form.title.errors %}
+                    <span class="error-message"><i class="fas fa-exclamation-circle"></i> {{ err }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.title(class="form-input", placeholder="تعديل عنوان المهمة...") }}
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.descrption.label(class="form-label") }}
+            {% if form.descrption.errors %}
+                {{ form.descrption(class="form-input input-error", rows="4", placeholder="تعديل تفاصيل المهمة...") }}
+                {% for err in form.descrption.errors %}
+                    <span class="error-message"><i class="fas fa-exclamation-circle"></i> {{ err }}</span>
+                {% endfor %}
+            {% else %}
+                {{ form.descrption(class="form-input", rows="4", placeholder="تعديل تفاصيل المهمة...") }}
+            {% endif %}
+        </div>
+
+        <div class="form-actions">
+            {{ form.submit(class="btn btn-submit", value="حفظ التعديلات") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

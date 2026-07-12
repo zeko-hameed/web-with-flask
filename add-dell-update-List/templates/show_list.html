@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block list %}
+<div class="container">
+    <h1 class="page-title">قائمة المهام</h1>
+    
+    {% if show %}
+        <div class="tasks-grid">
+            {% for sho in show %}
+                <div class="task-card">
+                    <div class="task-content">
+                        <h3 class="task-title">{{ sho.title }}</h3>
+                        <p class="task-desc">{{ sho.descrption }}</p>
+                    </div>
+                    
+                    <div class="task-footer">
+                        <span class="task-date">
+                            <i class="far fa-clock"></i> {{ sho.created_at.strftime('%Y-%m-%d') }}
+                        </span>
+                        <div class="task-actions">
+                            <a href="{{ url_for('update', id_list=sho.id) }}" class="btn-task btn-edit">تعديل</a>
+                            <a href="{{ url_for('delete', id_list=sho.id) }}" class="btn-task btn-delete">حذف</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-tasks">
+            <div class="no-tasks-icon">📝</div>
+            <h2>لا توجد مهام حالياً</h2>
+            <p>ابدأ بتنظيم يومك وأضف مهمتك الأولى الآن!</p>
+            <a href="{{ url_for('add_list') }}" class="btn-add-now">إضافة مهمة جديدة</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

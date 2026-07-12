@@ -1,0 +1,433 @@
+/* استيراد خطوط حديثة ودعم اللغة العربية */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #4f46e5;       /* لون بنفسجي عصري للـ Buttons والتركيز */
+    --primary-hover: #4338ca;       /* لون الزر عند تمرير الماوس */
+    --bg-color: #f8fafc;            /* خلفية الموقع المريحة */
+    --card-bg: #ffffff;             /* خلفية بطاقات المهام والنماذج */
+    --text-main: #1e293b;           /* لون النصوص الرئيسي */
+    --text-muted: #64748b;          /* لون النصوص الفرعية */
+    --border-color: #e2e8f0;        /* لون الحواف */
+    --error-color: #ef4444;         /* لون التنبيهات والأخطاء */
+    --error-bg: #fef2f2;            /* خلفية حقول الخطأ */
+    --radius: 12px;                 /* انحناء الزوايا العصري */
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --transition: all 0.3s ease;
+}
+
+/* التنسيق الأساسي للموقع */
+body {
+    font-family: 'Tajawal', 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    direction: rtl; /* يدعم الواجهة العربية، إذا كانت إنجليزية امسح هذا السطر */
+}
+
+/* حاوية النموذج (Form Container) */
+.form-container {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+/* العناوين */
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* مجموعات الحقول */
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* العناوين فوق الحقول */
+.form-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+/* حقول الإدخال النصية والـ Textarea */
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-main);
+    background-color: #fff;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* حقول الإدخال في حال وجود خطأ */
+.input-error {
+    border-color: var(--error-color);
+    background-color: var(--error-bg);
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* رسائل الخطأ للتحقق */
+.error-message {
+    font-size: 0.85rem;
+    color: var(--error-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+/* أزرار الإرسال */
+.form-actions {
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* إنيميشن خفيف لرسائل الخطأ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   تنسيق شريط التنقل (Header / Navigation)
+   ========================================== */
+
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+header div {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start; /* يرتب الأزرار من اليمين (لأن الاتجاه RTL) */
+    gap: 15px; /* مسافة احترافية بين الروابط */
+}
+
+header a {
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+}
+
+/* تأثير عند تمرير الماوس فوق الروابط */
+header a:hover {
+    color: var(--primary-color);
+    background-color: rgba(79, 70, 229, 0.05); /* خلفية خفيفة جداً بلون الزر */
+}
+
+/* تمييز الرابط النشط أو تحويل الروابط لشكل أزرار أنيقة */
+header a[href*="add_list"] {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+header a[href*="add_list"]:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+header a[href*="show_list"] {
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+}
+
+header a[href*="show_list"]:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   تنسيق صفحة عرض المهام (Tasks Showcase)
+   ========================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* شبكة عرض المهام (Responsive Grid) */
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* بطاقة المهمة المفردة */
+.task-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+/* محتوى المهمة الداخلي */
+.task-content {
+    padding: 24px;
+}
+
+.task-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 12px 0;
+}
+
+.task-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+    white-space: pre-line; /* يحافظ على الفراغات والأسطر الجديدة في الوصف */
+}
+
+/* أسفل البطاقة (التاريخ والأزرار) */
+.task-footer {
+    padding: 16px 24px;
+    background-color: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.task-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* أزرار التحكم الخاصة بالمهام */
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-task {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-edit {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+}
+
+.btn-edit:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-delete {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error-color);
+}
+
+.btn-delete:hover {
+    background-color: var(--error-color);
+    color: #ffffff;
+}
+
+/* تنسيق حالة عدم وجود مهام (Empty State) */
+.no-tasks {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.no-tasks-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.no-tasks h2 {
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.no-tasks p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.btn-add-now {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.btn-add-now:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ضبط المساحة العامة للمحتوى تحت الهيدر */
+.main-content {
+    min-height: calc(100vh - 80px); /* يضمن أن المحتوى يأخذ كامل مسافة الشاشة المتبقية */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* لتنعيم حواف الحركة والتنقل في الموقع بالكامل */
+* {
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
