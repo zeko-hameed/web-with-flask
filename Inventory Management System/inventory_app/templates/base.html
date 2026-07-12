@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- ربط ملف التنسيق الموحد للموقع -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    {% if title %}
+        <title>مستودعي — {{ title }}</title>
+    {% else %}
+        <title>مستودعي — نظام إدارة المخازن</title>
+    {% endif %}
+</head>
+<body class="site-body">
+
+    <!-- حاوية رسائل التنبيه الذكية (Flash Messages) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages-container">
+                {% for category, message in messages %}
+                    <!-- الكود يدعم تصنيف الرسائل تلقائياً (success, error, info) -->
+                    <div class="alert-card alert-{{ category if category else 'info' }}">
+                        <span class="alert-icon">
+                            {% if category == 'success' %}✓
+                            {% elif category == 'error' %}⚠️
+                            {% else %}ℹ️{% endif %}
+                        </span>
+                        <p class="alert-text">{{ message }}</p>
+                        <button class="alert-close-btn" onclick="this.parentElement.remove()">×</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <!-- تضمين شريط التنقل الرئيسي -->
+    {% include 'navbar.html' %}
+    
+    <!-- الحاوية الديناميكية للمحتوى المتغير -->
+    <main class="main-content-wrapper">
+        {% block zeko %}
+            
+        {% endblock %}
+    </main>
+    
+</body>
+</html>

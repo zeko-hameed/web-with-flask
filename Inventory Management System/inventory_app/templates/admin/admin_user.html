@@ -1,0 +1,58 @@
+{% extends 'admin_base.html' %}
+
+{% block zeko_admin %}
+<div class="table-wrapper">
+    
+    <div class="table-header-container">
+        <div>
+            <h1 class="table-page-title">إدارة جميع المستخدمين</h1>
+            <p class="table-page-subtitle">التحكم في صلاحيات الحسابات، ترقية الأعضاء أو حذفهم من النظام</p>
+        </div>
+    </div>
+
+    <div class="responsive-table-container">
+        <table class="custom-admin-table">
+            <thead>
+                <tr>
+                    <th>المعرف (ID)</th>
+                    <th>الإسم الكامل</th>
+                    <th>البريد الإلكتروني</th>
+                    <th>نوع الصلاحية</th>
+                    <th class="text-center">إجراءات التحكم</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for us in user %}
+                    <tr>
+                        <td><span class="badge-id">#{{ us.id }}</span></td>
+                        
+                        <td class="font-bold text-main">{{ us.name }}</td>
+                        
+                        <td>{{ us.email }}</td>
+                        
+                        <td>
+                            {% if us.role == 'admin' %}
+                                <span class="badge-role role-admin">مسؤول (Admin)</span>
+                            {% else %}
+                                <span class="badge-role role-user">مستخدم (User)</span>
+                            {% endif %}
+                        </td>
+                        
+                        <td>
+                            <div class="table-actions">
+                                {% if us.role == 'admin' %}
+                                    <a href="{{ url_for('indate_user', id=us.id) }}" class="btn-action btn-downgrade">خفض الصلاحية</a>
+                                {% elif us.role == 'user' %}
+                                    <a href="{{ url_for('update_user', id=us.id) }}" class="btn-action btn-upgrade">ترقية لأدمن</a>
+                                {% endif %}
+                                
+                                <a href="{{ url_for('delelte_user', id=us.id) }}" class="btn-action btn-delete" onclick="return confirm('هل أنت متأكد تماماً من حذف هذا المستخدم نهائياً؟')">حذف الحساب</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

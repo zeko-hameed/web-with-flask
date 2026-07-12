@@ -1,0 +1,1271 @@
+/* الألوان والخطوط الأساسية للموقع */
+:root {
+    --primary-color: #4f46e5;      /* اللون البنفسجي الاحترافي */
+    --primary-hover: #4338ca;
+    --bg-gradient-start: #f8fafc;  /* خلفية ناعمة مريحة للعين */
+    --bg-gradient-end: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --error-color: #ef4444;
+    --error-bg: #fef2f2;
+    --shadow-main: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+}
+
+/* الحاوية الرئيسية لتوسيط العناصر في الشاشة */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    padding: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl; /* لدعم اللغة العربية بشكل صحيح */
+}
+
+/* بطاقة النموذج الاحترافية */
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--shadow-main);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px); /* حركة صعود طفيفة جداً تعطي إحساس بالفخامة */
+}
+
+/* رأس البطاقة */
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+    font-size: 1.75rem;
+    color: var(--text-main);
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.auth-header p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* تنسيق الحقول والنصوص */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    background-color: #f8fafc;
+    color: var(--text-main);
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* تأثير عند الضغط على الحقل */
+.form-input:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* في حالة وجود خطأ بالحقل */
+.input-error {
+    border-color: var(--error-color);
+    background-color: var(--error-bg);
+    color: #991b1b;
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+    border-color: var(--error-color);
+}
+
+/* رسائل الخطأ */
+.error-messages {
+    margin-top: 0.5rem;
+}
+
+.error-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--error-color);
+    margin: 0 0 0.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.error-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--error-color);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* زر الإرسال الإحترافي */
+.btn-submit {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2), 0 2px 4px -1px rgba(79, 70, 229, 0.1);
+    transition: all 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.btn-submit:active {
+    transform: scale(0.98); /* تأثير الضغط الحركي */
+}
+
+/* تذييل الصفحة والروابط */
+.auth-footer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.auth-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.auth-link:hover {
+    color: var(--primary-hover);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات خاصة بالملف الشخصي وصورة المستخدم --- */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* حاوية الصورة الدائرية */
+.avatar-container {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1.25rem auto;
+    border-radius: 50%;
+    padding: 4px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+}
+
+/* الصورة الشخصية */
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* تنسيق حقل رفع الملفات الحديث */
+.form-input-file {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1; /* إطار متقطع يعبر بصرياً عن الرفع */
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-input-file:hover {
+    border-color: var(--primary-color);
+    background: #f0fdf4; /* تلميح لوني ناعم عند تمرير الفأرة */
+}
+
+/* تنسيق خاص بأزرار رفع الملفات داخل المتصفح */
+.form-input-file::file-selector-button {
+    padding: 0.4rem 1rem;
+    margin-left: 1rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-input-file::file-selector-button:hover {
+    background-color: var(--bg-gradient-end);
+    border-color: #94a3b8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات الصفحة الرئيسية وشبكة المنتجات --- */
+
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+/* عناوين الصفحة */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 2.25rem;
+    color: var(--text-main);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.sub-title {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* شبكة المنتجات الذكية والتجاوب العالي (Grid Layout) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem; /* المسافة بين الكروت */
+}
+
+/* كرت المنتج الإحترافي */
+.product-card {
+    background: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    overflow: hidden; /* لمنع الصورة من الخروج عن حواف الكرت الدائرية */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تأثير فخم عند تمرير الفأرة فوق المنتج */
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+/* حاوية الصورة للحفاظ على أبعاد ثابتة لجميع المنتجات */
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* نسبة أبعاد الصورة 4:3 للحفاظ على التناسق */
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+.product-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لملء المساحة بدون تشويه الصورة */
+    transition: transform 0.5s ease;
+}
+
+/* عمل زووم خفيف جداً للصورة عند عمل هوفر */
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* تفاصيل المنتج */
+.product-details {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* لتتساوى ارتفاعات الكروت تلقائياً */
+}
+
+.product-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 0.5rem 0;
+}
+
+.product-description {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* قص النص الزائد بعد سطرين للحفاظ على التناسق */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* الجزء السفلي للكرت (السعر والزر) */
+.product-footer {
+    margin-top: auto; /* دفع العناصر لأسفل الكرت دائماً */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.product-price {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.product-price small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* زر عرض التفاصيل الصغير والناعم */
+.btn-view {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: #f5f3ff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-view:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات شريط التنقل العالمي (Navbar) --- */
+
+.main-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px); /* تأثير الزجاج الضبابي الفخم المعتمد عالمياً */
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    padding: 0.75rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* الجانب الأيمن والشعار */
+.nav-right, .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* روابط الملاحة العادية */
+.nav-link-item {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.nav-link-item:hover, .nav-link-item.active {
+    color: var(--primary-color);
+    background-color: #f5f3ff;
+}
+
+/* رابط الأدمن المميز */
+.admin-badge-link {
+    color: #b91c1c;
+    background-color: #fef2f2;
+}
+.admin-badge-link:hover {
+    color: #991b1b;
+    background-color: #fee2e2;
+}
+
+/* الجانب الأيسر وبيانات المستخدم */
+.user-profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border-color);
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.user-profile-trigger:hover {
+    border-color: #cbd5e1;
+    background-color: #f1f5f9;
+}
+
+.nav-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-username {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* أزرار الإجراءات داخل الهيدر */
+.btn-nav-primary {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.15);
+    transition: all 0.2s ease;
+}
+
+.btn-nav-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+}
+
+.btn-nav-secondary {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.btn-nav-secondary:hover {
+    color: #1e293b;
+    background-color: #f1f5f9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات إضافية خاصة بلوحة التحكم (Admin Panel) --- */
+
+/* زيادة عرض بطاقة الإدخال للأدمن لأن البيانات تحتاج مساحة عرضية أكبر */
+.admin-card {
+    max-width: 580px; 
+    border-top: 4px solid #10b981; /* شريط علوي بلون أخضر زمردي يدل على النجاح والإضافة */
+}
+
+/* شارة مميزة أعلى لوحة التحكم */
+.admin-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #065f46;
+    background-color: #d1fae5;
+    border-radius: 2rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* تهيئة حقل الوصف الطويل ليتسع للمزيد من النصوص */
+.description-textarea {
+    min-height: 120px;
+    resize: vertical; /* السماح للمستخدم بتكبير الحقل عمودياً فقط للحفاظ على المظهر */
+    line-height: 1.5;
+}
+
+/* زر إرسال خاص بالأدمن بلون مخصص ومميز */
+.btn-admin-submit {
+    background-color: #10b981;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2), 0 2px 4px -1px rgba(16, 185, 129, 0.1);
+}
+
+.btn-admin-submit:hover {
+    background-color: #059669;
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات لوحة التحكم (Admin Dashboard) --- */
+
+.dashboard-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+.dashboard-header {
+    margin-bottom: 2.5rem;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 0.35rem 0;
+}
+
+.dashboard-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* شبكة بطاقات الإحصائيات */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* بطاقة الإحصاءات الاحترافية */
+.stat-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* تمييز البطاقات بأشرطة جانبية ملونة مبهجة */
+.users-stat { border-right: 4px solid var(--primary-color); }
+.items-stat { border-right: 4px solid #10b981; }
+
+/* حاوية الأيقونة التعبيرية */
+.stat-icon-wrapper {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem; /* وضع الأيقونة في اليسار بما أن النص يبدأ من اليمين */
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.users-stat .stat-icon-wrapper { background-color: #f5f3ff; }
+.items-stat .stat-icon-wrapper { background-color: #e6f4ea; }
+
+/* نصوص الأرقام والإحصائيات */
+.stat-label {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+/* تذييل البطاقة والروابط */
+.stat-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.stat-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.2s ease;
+}
+
+.stat-link span {
+    transition: transform 0.2s ease;
+}
+
+/* حركة السهم اللطيفة عند تمرير الماوس */
+.stat-card:hover .stat-link {
+    color: var(--primary-color);
+}
+
+.stat-card:hover .stat-link span {
+    transform: translateX(-4px); /* يتحرك السهم قليلاً لليستار ليجذب عين المسؤول */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات جداول البيانات في لوحة التحكم (Admin Data Tables) --- */
+
+.table-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+.table-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-page-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 0.35rem 0;
+}
+
+.table-page-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* زر الإضافة السريع */
+.btn-add-fast {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #10b981;
+    text-decoration: none;
+    border-radius: 0.6rem;
+    transition: background 0.2s ease;
+}
+.btn-add-fast:hover { background-color: #059669; }
+
+/* جعل الجدول مرناً على شاشات الموبايل المتنوعة */
+.responsive-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-main);
+}
+
+.custom-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+/* الترويسة العلوية للجدول */
+.custom-admin-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* خلايا البيانات وعناصر الجدول */
+.custom-admin-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.925rem;
+    color: #334155;
+    vertical-align: middle;
+}
+
+/* تلوين الصفوف بالتناوب لراحة العين عند القراءة */
+.custom-admin-table tbody tr:nth-child(even) {
+    background-color: #f8fafc/50;
+}
+
+.custom-admin-table tbody tr:hover {
+    background-color: #f1f5f9; /* تأثير خفيف عند تمرير الماوس على الصف */
+}
+
+/* تنسيقات مخصصة للأعمدة */
+.badge-id {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: #e2e8f0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+}
+
+.table-img-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.table-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.table-desc-cell p {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* إظهار نقاط ... إذا كان الوصف طويلاً جداً في الجدول */
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.price-cell { color: var(--primary-color); }
+.font-bold { font-weight: 700; }
+.text-center { text-align: center; }
+
+/* أزرار الإجراءات داخل الجدول */
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-action {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease;
+}
+
+.btn-edit {
+    color: var(--primary-color);
+    background-color: #f5f3ff;
+}
+.btn-edit:hover {
+    color: #ffffff;
+    background-color: var(--primary-color);
+}
+
+.btn-delete {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+.btn-delete:hover {
+    color: #ffffff;
+    background-color: #ef4444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات إضافية خاصة بجدول إدارة المستخدمين --- */
+
+/* شارات الصلاحية المتطورة */
+.badge-role {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+/* شارة الأدمن (لون أحمر/برتقالي خفيف يعبر عن الحذر والأهمية) */
+.role-admin {
+    color: #991b1b;
+    background-color: #fee2e2;
+    border: 1px solid #fca5a5;
+}
+
+/* شارة المستخدم العادي (لون أزرق ناعم مريح) */
+.role-user {
+    color: #1e40af;
+    background-color: #dbeafe;
+    border: 1px solid #93c5fd;
+}
+
+/* أزرار الترقية والخفض */
+.btn-upgrade {
+    color: #15803d;
+    background-color: #d1fae5;
+}
+.btn-upgrade:hover {
+    color: #ffffff;
+    background-color: #15803d;
+}
+
+.btn-downgrade {
+    color: #b45309;
+    background-color: #fef3c7;
+}
+.btn-downgrade:hover {
+    color: #ffffff;
+    background-color: #b45309;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- تنسيقات شريط التنقل الخاص بالأدمن (Admin Navbar) --- */
+
+.admin-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background-color: #0f172a; /* خلفية داكنة فخمة (Slate 900) تميز لوحة التحكم عن باقي الموقع */
+    border-bottom: 1px solid #1e293b;
+    padding: 0.85rem 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+.admin-nav-container {
+    max-width: 1400px; /* مساحة عرضية أكبر لتناسب جداول وبيانات الأدمن */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* شعار وعنوان بوابة الإدارة */
+.admin-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-logo-icon {
+    font-size: 1.5rem;
+}
+
+.admin-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-main-link {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.admin-subtext {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* روابط التنقل الإدارية */
+.admin-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-nav-item {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+/* تأثير عند تمرير الماوس فوق روابط الأدمن */
+.admin-nav-item:hover {
+    color: #ffffff;
+    background-color: #1e293b;
+}
+
+/* تمييز زر إضافة منتج داخل الهيدر */
+.btn-admin-add-nav {
+    color: #10b981 !important;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.btn-admin-add-nav:hover {
+    background-color: rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+}
+
+.nav-icon {
+    font-size: 1rem;
+}
+
+/* زر الخروج والعودة للموقع للمستخدمين */
+.btn-exit-to-home {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #334155;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+}
+
+.btn-exit-to-home:hover {
+    color: #ffffff;
+    border-color: #64748b;
+    background-color: #1e293b;
+}
+
+.btn-exit-to-home span {
+    transition: transform 0.2s ease;
+}
+
+.btn-exit-to-home:hover span {
+    transform: translateX(-3px);
+}
+
+
+
+
+
+
+
+
+
+
+/* --- التنسيقات العامة للموقع والإشعارات (Alerts & Global Layout) --- */
+
+.site-body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-gradient-start);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* الحاوية الرئيسية للمحتوى لضمان عدم التصاق العناصر بالحواف */
+.main-content-wrapper {
+    flex: 1 0 auto;
+}
+
+/* حاوية الإشعارات العائمة في أعلى يسار الشاشة */
+.flash-messages-container {
+    position: fixed;
+    top: 5rem;
+    left: 1.5rem; /* تظهر في اليسار لتجنب حجب القوائم اليمنى */
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 380px;
+    width: 100%;
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* بطاقة الإشعار الاحترافية */
+.alert-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-right: 4px solid #cbd5e1; /* الافتراضي */
+    position: relative;
+}
+
+/* تخصيص الألوان حسب نوع التنبيه */
+.alert-success {
+    border-right-color: #10b981;
+    background-color: #f0fdf4;
+    color: #14532d;
+}
+.alert-error {
+    border-right-color: #ef4444;
+    background-color: #fef2f2;
+    color: #7f1d1d;
+}
+.alert-info {
+    border-right-color: var(--primary-color);
+    background-color: #f5f3ff;
+    color: #3b0764;
+}
+
+.alert-icon {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.alert-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* زر إغلاق الإشعار الصغير */
+.alert-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: currentColor;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 0;
+    line-height: 1;
+}
+.alert-close-btn:hover {
+    opacity: 1;
+}
+
+/* حركة دخول الإشعار الفخمة (Animation) */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* خلفية خاصة بصفحات الأدمن لإبراز كروت وجداول البيانات */
+.admin-body-bg {
+    background-color: #f8fafc; /* لون رمادي ناعم جداً ومريح للعين */
+}
+
+/* مساحة إضافية مريحة تحت هيدر الأدمن */
+.admin-main-padding {
+    padding-top: 1rem;
+}

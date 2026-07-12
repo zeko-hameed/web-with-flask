@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block zeko %}
+<div class="home-container">
+    <div class="page-header">
+        <h1 class="main-title">المعروضات والمنتجات</h1>
+        <p class="sub-title">اكتشف وتصفح المنتجات المتوفرة في المخزن حالياً</p>
+    </div>
+
+    <div class="products-grid">
+        {% for ite in item %}
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="{{ url_for('static', filename='item_image/' + ite.image_url) }}" alt="{{ ite.name }}" class="product-img">
+                </div>
+                
+                <div class="product-details">
+                    <h2 class="product-name">
+                        {{ ite.name }}
+                    </h2>
+                    <p class="product-description">
+                        {{ ite.description }}
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-price">{{ ite.price }} <small>ر.س</small></span>
+                        <button class="btn-view">عرض التفاصيل</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

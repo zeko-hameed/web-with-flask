@@ -1,0 +1,50 @@
+{% extends 'admin_base.html' %}
+
+{% block zeko_admin %}
+<div class="table-wrapper">
+    
+    <div class="table-header-container">
+        <div>
+            <h1 class="table-page-title">إدارة جميع المنتجات</h1>
+            <p class="table-page-subtitle">يمكنك استعراض، تعديل، أو حذف المنتجات المتوفرة في المخزن</p>
+        </div>
+        <a href="{{ url_for('admin_add_item') }}" class="btn-add-fast">+ إضافة منتج جديد</a>
+    </div>
+
+    <div class="responsive-table-container">
+        <table class="custom-admin-table">
+            <thead>
+                <tr>
+                    <th>المعرف (ID)</th>
+                    <th>صورة المنتج</th>
+                    <th>الإسم</th>
+                    <th>الوصف</th>
+                    <th>السعر</th>
+                    <th class="text-center">الإجراءات والتحكم</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for us in item %}
+                    <tr>
+                        <td><span class="badge-id">#{{ us.id }}</span></td>
+                        <td>
+                            <div class="table-img-wrapper">
+                                <img src="{{ url_for('static', filename='item_image/' + us.image_url) }}" alt="{{ us.name }}">
+                            </div>
+                        </td>
+                        <td class="font-bold text-main">{{ us.name }}</td>
+                        <td class="table-desc-cell"><p>{{ us.description }}</p></td>
+                        <td class="font-bold price-cell">{{ us.price }} <small>ر.س</small></td>
+                        <td>
+                            <div class="table-actions">
+                                <a href="{{ url_for('admin_update', id=us.id) }}" class="btn-action btn-edit">تعديل</a>
+                                <a href="{{ url_for('delete', id=us.id) }}" class="btn-action btn-delete" onclick="return confirm('هل أنت متأكد من حذف هذا المنتج؟')">حذف</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'admin_base.html' %}
+
+{% block zeko_admin %}
+<div class="auth-container admin-container">
+    <div class="auth-card admin-card">
+        
+        <div class="auth-header admin-header">
+            <div class="admin-badge">لوحة التحكم</div>
+            <h2>إضافة منتج جديد</h2>
+            <p>قم بملء البيانات أدناه لإدراج منتج جديد وصورته في المخزن</p>
+        </div>
+
+        <form action="" method="post" novalidate enctype="multipart/form-data" class="auth-form">
+            {{ form.csrf_token }}
+
+            <div class="form-group">
+                <label for="{{ form.name.id }}" class="form-label">
+                    {{ form.name.label.text }}
+                </label>
+                {% if form.name.errors %}
+                    {{ form.name(class="form-input input-error", placeholder="مثال: شاشة حاسوب 24 بوصة") }}
+                    <div class="error-messages">
+                        {% for err in form.name.errors %}
+                            <p class="error-text"><span class="error-dot"></span> {{ err }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name(class="form-input", placeholder="مثال: شاشة حاسوب 24 بوصة") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.description.id }}" class="form-label">
+                    {{ form.description.label.text }}
+                </label>
+                {% if form.description.errors %}
+                    {{ form.description(class="form-input input-error description-textarea", placeholder="اكتب تفاصيل ومواصفات المنتج هنا...") }}
+                    <div class="error-messages">
+                        {% for err in form.description.errors %}
+                            <p class="error-text"><span class="error-dot"></span> {{ err }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.description(class="form-input description-textarea", placeholder="اكتب تفاصيل ومواصفات المنتج هنا...") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.price.id }}" class="form-label">
+                    {{ form.price.label.text }}
+                </label>
+                {% if form.price.errors %}
+                    {{ form.price(class="form-input input-error", placeholder="0.00") }}
+                    <div class="error-messages">
+                        {% for err in form.price.errors %}
+                            <p class="error-text"><span class="error-dot"></span> {{ err }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.price(class="form-input", placeholder="0.00") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">
+                    {{ form.image_url.label.text }}
+                </label>
+                <div class="file-upload-wrapper">
+                    {% if form.image_url.errors %}
+                        {{ form.image_url(class="form-input-file input-error") }}
+                        <div class="error-messages">
+                            {% for err in form.image_url.errors %}
+                                <p class="error-text"><span class="error-dot"></span> {{ err }}</p>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.image_url(class="form-input-file") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-actions pt-3">
+                {{ form.submit(class="btn-submit btn-admin-submit", value="إضافة المنتج للمخزن") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

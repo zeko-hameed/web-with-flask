@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block zeko %}
+<div class="auth-container">
+    <div class="auth-card">
+        
+        <div class="auth-header">
+            <h2>إنشاء حساب جديد</h2>
+            <p>ابدأ إدارة مخزونك بذكاء وسرعة اليوم</p>
+        </div>
+
+        <form action="" method="post" novalidate class="auth-form">
+            {{ form.csrf_token }}
+
+            <div class="form-group">
+                <label for="{{ form.email.id }}" class="form-label">
+                    {{ form.email.label.text }}
+                </label>
+                
+                {% if form.email.errors %}
+                    {{ form.email(class="form-input input-error") }}
+                    <div class="error-messages">
+                        {% for err in form.email.errors %}
+                            <p class="error-text">
+                                <span class="error-dot"></span> {{ err }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-input") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password.id }}" class="form-label">
+                    {{ form.password.label.text }}
+                </label>
+                
+                {% if form.password.errors %}
+                    {{ form.password(class="form-input input-error") }}
+                    <div class="error-messages">
+                        {% for err in form.password.errors %}
+                            <p class="error-text">
+                                <span class="error-dot"></span> {{ err }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-input") }}
+                {% endif %}
+            </div>
+
+            <div class="form-actions">
+                {{ form.submit(class="btn-submit") }}
+            </div>
+            
+            <div class="auth-footer">
+                لديك حساب بالفعل؟ 
+                <a href="{{ url_for('login') }}" class="auth-link">تسجيل الدخول</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

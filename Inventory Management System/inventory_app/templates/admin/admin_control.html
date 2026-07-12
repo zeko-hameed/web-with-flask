@@ -1,0 +1,45 @@
+{% extends 'admin_base.html' %}
+
+{% block zeko_admin %}
+<div class="dashboard-wrapper">
+    
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">نظرة عامة على النظام</h1>
+        <p class="dashboard-subtitle">مرحباً بك في لوحة الإدارة الرقمية لمستودعك</p>
+    </div>
+
+    <div class="dashboard-grid">
+        
+        <div class="stat-card users-stat">
+            <div class="stat-icon-wrapper">
+                <span class="stat-icon">👥</span>
+            </div>
+            <div class="stat-info">
+                <h2 class="stat-label">إجمالي المستخدمين</h2>
+                <div class="stat-number">{{ user|length }}</div>
+            </div>
+            <div class="stat-footer">
+                <a href="{{ url_for('admin_user') }}" class="stat-link">
+                    إدارة المستخدمين <span>←</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="stat-card items-stat">
+            <div class="stat-icon-wrapper">
+                <span class="stat-icon">📦</span>
+            </div>
+            <div class="stat-info">
+                <h2 class="stat-label">إجمالي المنتجات بالمخزن</h2>
+                <div class="stat-number">{{ item|length }}</div>
+            </div>
+            <div class="stat-footer">
+                <a href="{{ url_for('admin_item') }}" class="stat-link">
+                    عرض وتعديل المنتجات <span>←</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+<header class="admin-navbar">
+    <div class="admin-nav-container">
+        
+        <div class="admin-nav-brand">
+            <span class="admin-logo-icon">⚙️</span>
+            <div class="admin-brand-text">
+                <a href="{{ url_for('admin_control') }}" class="admin-main-link">بوابة الإدارة</a>
+                <span class="admin-subtext">نظام التحكم بالمخزن</span>
+            </div>
+        </div>
+   
+        <nav class="admin-nav-links">
+            <a href="{{ url_for('admin_control') }}" class="admin-nav-item">
+                <span class="nav-icon">📊</span> لوحة التحكم
+            </a>
+            <a href="{{ url_for('admin_user') }}" class="admin-nav-item">
+                <span class="nav-icon">👥</span> المستخدمين
+            </a>
+            <a href="{{ url_for('admin_item') }}" class="admin-nav-item">
+                <span class="nav-icon">📦</span> المنتجات
+            </a>
+            <a href="{{ url_for('admin_add_item') }}" class="admin-nav-item btn-admin-add-nav">
+                <span class="nav-icon">＋</span> إضافة منتج
+            </a>
+        </nav>
+
+        <div class="admin-nav-exit">
+            <a href="{{ url_for('home') }}" class="btn-exit-to-home">
+                العودة للموقع الرئيسي <span>←</span>
+            </a>
+        </div>
+
+    </div>
+</header>

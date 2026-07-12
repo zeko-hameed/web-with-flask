@@ -1,0 +1,36 @@
+<header class="main-navbar">
+    <div class="navbar-container">
+        
+        <div class="nav-right">
+            <a href="{{ url_for('home') }}" class="nav-logo">
+                <span class="logo-dot"></span> مستودعي
+            </a>
+            <nav class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link-item active">الرئيسية</a>
+                
+                {% if current_user.is_authenticated and current_user.role == 'admin' %}
+                    <a href="{{ url_for('admin_control') }}" class="nav-link-item admin-badge-link">لوحة التحكم</a>
+                {% endif %}
+            </nav>
+        </div>
+   
+        <div class="nav-left">
+            {% if current_user.is_authenticated %}
+                <div class="user-menu">
+                    <a href="{{ url_for('profile') }}" class="user-profile-trigger">
+                        {% if current_user.image_url %}
+                            <img src="{{ url_for('static', filename='profile/' + current_user.image_url) }}" alt="Avatar" class="nav-avatar">
+                        {% endif %}
+                        <span class="nav-username">{{ current_user.name }}</span>
+                    </a>
+                </div>
+                
+                <a href="{{ url_for('logout') }}" class="btn-nav-secondary">تسجيل خروج</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="nav-link-item">دخول</a>
+                <a href="{{ url_for('regester') }}" class="btn-nav-primary">إنشاء حساب</a>
+            {% endif %}
+        </div>
+
+    </div>
+</header>
