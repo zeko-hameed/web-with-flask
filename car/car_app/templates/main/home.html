@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block car %}
+    <div class="gallery-container">
+        {% if cars %}
+            {% for car in cars %}
+                <div class="product-card">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='uploads/' + car.image_file) }}" alt="{{ car.name }}">
+                    </div>
+                    <div class="card-content">
+                        <h2>{{ car.name }}</h2>
+                        <p>{{ car.description }}</p>
+                        <p>create at :{{ car.created_at.strftime('%Y-%m-%d') }}</p>
+                        <p>price : {{ car.price }}$</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1> there not any car now </h1>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+{% block car %}
+<div class="form-wrapper">
+    <div class="form-container">
+        <h2 class="form-title"> create a new account </h2>
+        
+        <form action="" method="post" novalidate enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            
+            <div class="form-group">
+                {{ form.name.label(class="form-label") }}
+                {% if form.name.errors %}
+                    {{ form.name(class="form-control is-invalid") }}
+                    {% for err in form.name.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.name(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control is-invalid") }}
+                    {% for err in form.email.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.email(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control is-invalid") }}
+                    {% for err in form.password.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.password(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.Convirt_password.label(class="form-label") }}
+                {% if form.Convirt_password.errors %}
+                    {{ form.Convirt_password(class="form-control is-invalid") }}
+                    {% for err in form.Convirt_password.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.Convirt_password(class="form-control") }}
+                {% endif %}
+            </div>
+            
+            <div class="form-submit-btn">
+                {{ form.submit(class="btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

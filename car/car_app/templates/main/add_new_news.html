@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block car %}
+<div class="form-wrapper">
+    <div class="form-container">
+        <h2 class="form-title"> add a new news </h2>
+        
+        <form action="" method="post" novalidate enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            
+            <div class="form-group">
+                {{ form.title.label(class="form-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control is-invalid") }}
+                    {% for err in form.title.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.title(class="form-control") }}
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.description.label(class="form-label") }}
+                {% if form.description.errors %}
+                    {{ form.description(class="form-control is-invalid") }}
+                    {% for err in form.description.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.description(class="form-control") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.photo.label(class="form-label") }}
+                {% if form.photo.errors %}
+                    {{ form.photo(class="form-control is-invalid") }}
+                    {% for err in form.photo.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.photo(class="form-control") }}
+                {% endif %}
+            </div>
+            
+            <div class="form-submit-btn">
+                {{ form.submit(class="btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

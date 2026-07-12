@@ -1,0 +1,709 @@
+/* ==========================================================================
+   1. GLOBAL BLACKOUT & RESET (أسلوب المواقع الفاخرة العالمية)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #090d16; /* أسود عميق مائل للأزرق الليلي الفاخر */
+    color: #f8fafc; /* نصوص ناصعة وواضحة جداً للقراءة */
+    direction: ltr;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. FUTURISTIC NAVIGATION BAR (شريط تنقل زجاجي شفاف ومشع)
+   ========================================================================== */
+.main-header {
+    background-color: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(12px); /* تأثير الزجاج الضبابي العالمي */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px; /* تصميم عصري مربع الحواف الدائرية */
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 35px; 
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #94a3b8; 
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); /* تأثير توهج نيون عند الوقوف على القائمة */
+}
+
+/* ==========================================================================
+   3. CINEMATIC CARS SHOWROOM (معرض السيارات الرياضية والفاخرة)
+   ========================================================================== */
+.gallery-container {
+    padding: 60px 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    display: grid; /* استخدام نظام الـ Grid العالمي لتوزيع مثالي */
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+.product-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.7));
+    backdrop-filter: blur(8px);
+    border-radius: 24px; /* زوايا انسيابية تشبه تصاميم السيارات الحديثة */
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-12px) scale(1.02); /* تأثير حركة ديناميكي ثلاثي الأبعاد */
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.1);
+}
+
+/* الحاوية السينمائية للصورة */
+.card-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent); /* دمج الصورة مع الكرت بنعومة */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-card:hover .card-image img {
+    transform: scale(1.1) rotate(1deg); /* زووم رياضي مثير وتدوير خفيف جداً */
+}
+
+/* تنسيق النصوص والبيانات داخل الكرت العالمي */
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* الوصف النصي للسيارة */
+.card-content p:nth-of-type(1) {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 45px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* تاريخ الإنشاء المستوحى من تصاميم لوحات القيادة القياسية */
+.card-content p:nth-of-type(2) {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    margin-top: auto; /* يدفع التاريخ والأسعار دائماً لأسفل الكرت وثبات مستواها */
+    display: flex;
+    align-items: center;
+}
+
+.card-content p:nth-of-type(2)::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+    margin-right: 8px; /* نقطة نيون مضيئة بجانب التاريخ */
+}
+
+/* السعر الفاخر والضخم والمستقل تماماً */
+.card-content p:nth-of-type(3) {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-content p:nth-of-type(3)::after {
+    content: 'PREMIUM';
+    font-size: 0.65rem;
+    color: #090d16;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* شارة نيون ذكية صغيرة بجانب السعر */
+}
+
+/* Utilities */
+.dfsd { text-align: center; width: 100%; grid-column: 1/-1; }
+
+/* ==========================================================================
+   4. LUXURY DARK INPUT FORM (تنسيق صفحة الإدخال لتطابق المظهر العالمي)
+   ========================================================================== */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: calc(100vh - 100px);
+}
+
+.form-container {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.8));
+    backdrop-filter: blur(16px);
+    width: 100%;
+    max-width: 550px;
+    padding: 45px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+.form-title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.form-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    margin: 10px auto 0 auto;
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background-color: rgba(9, 13, 22, 0.5);
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #38bdf8;
+    background-color: rgba(9, 13, 22, 0.8);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.form-control-file {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background-color: rgba(9, 13, 22, 0.3);
+    cursor: pointer;
+    color: #94a3b8;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.form-control-file:hover {
+    border-color: #38bdf8;
+    background-color: rgba(9, 13, 22, 0.5);
+}
+
+/* ==========================================================================
+   5. CRIMSON VALIDATION ERRORS (تنسيق أخطاء الإدخال المضيئة)
+   ========================================================================== */
+.form-control.is-invalid {
+    border-color: #f87171;
+    background-color: rgba(248, 113, 113, 0.05);
+}
+
+.error-message {
+    color: #f87171;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+}
+
+/* ==========================================================================
+   6. POWERFUL INTERACTION SUBMIT BUTTON
+   ========================================================================== */
+.form-submit-btn {
+    margin-top: 35px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9); /* زر مشع نيون يتوافق مع مظهر الفخامة */
+    color: #090d16;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(56, 189, 248, 0.5);
+    background: linear-gradient(90deg, #7dd3fc, #38bdf8);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   8. LUXURY ROW LIST VIEW (تصميم طولي عالمي فريد)
+   ========================================================================== */
+
+/* الحاوية الكبرى: ترتب القوالب طولياً (تحت بعضها) وتأخذ العرض الكامل */
+.luxury-list-container {
+    width: 95%;
+    max-width: 1300px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* المسافة بين كل سطر وسطر */
+}
+
+/* القالب الرئيسي للسطر: يأخذ العرض الكامل والطول محدد لا يتجاوز 300px */
+.car-row-item {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.45), rgba(15, 23, 42, 0.75));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    height: 260px; /* الطول ثابت ومثالي أقل من 300px */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    display: flex; /* لعرض الصورة على اليسار والبيانات على اليمين */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* تأثير التفاعل والطفو الفخم عند مرور الماوس على السطر */
+.car-row-item:hover {
+    transform: translateX(8px); /* إزاحة خفيفة لليمين تعطي شعوراً بالتصفح العالمي */
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+/* حاوية الصورة (على اليسار) */
+.car-row-image {
+    width: 35%; /* تأخذ 35% من عرض السطر الكامل */
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #090d16;
+}
+
+/* تدرج ظلي ناعم يفصل الصورة عن الكلام برقي */
+.car-row-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(15, 23, 42, 0.95), transparent);
+}
+
+.car-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.car-row-item:hover .car-row-image img {
+    transform: scale(1.05); /* تقريب ناعم جداً للصورة عند الهوفر */
+}
+
+/* حاوية التفاصيل بالكامل (على اليمين) */
+.car-row-details {
+    width: 65%; /* تأخذ باقي المساحة المتبقية */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* لتوزيع العنوان والوصف والفوتر بشكل متناسق عمودياً */
+}
+
+/* عنوان السيارة العريض والبارز */
+.car-row-title {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+/* الوصف النصي الممتد */
+.car-row-description {
+    color: #94a3b8;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* يكتفي بسطرين كحد أقصى للوصف لعدم تشويه الطول */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* الحاوية السفلية للتاريخ والسعر */
+.car-row-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 15px;
+}
+
+/* تنسيق التاريخ الرقمي */
+.car-row-time {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+}
+
+/* النقطة المضيئة بجانب التاريخ */
+.car-row-time::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px #38bdf8;
+}
+
+/* تنسيق السعر العالمي الضخم */
+.car-row-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.car-row-price span {
+    font-size: 0.8rem;
+    color: #38bdf8;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   2. FUTURISTIC GLASS NAVIGATION BAR & DROPDOWN (UPDATED)
+   ========================================================================== */
+.main-header {
+    background-color: rgba(15, 23, 42, 0.7); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 15px 60px;
+    position: sticky;
+    top: 0;
+    z-index: 2000; /* لضمان ظهور القائمة المنسدلة فوق كروت السيارات دوماً */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-logo h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: linear-gradient(90deg, #ffffff, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* تلوين اللوجو بتدرج فخم */
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 30px; 
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #94a3b8; 
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: #38bdf8;
+}
+
+/* --- تصميم الـ Dropdown الذكي --- */
+.user-dropdown {
+    position: relative; /* ضروري لتحديد موقع القائمة الفرعية بالنسبة له */
+}
+
+.dropdown-trigger {
+    color: #38bdf8 !important; /* تمييز اسم المستخدم بلون السايرن المشع */
+    font-weight: 700 !important;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.dropdown-trigger .arrow {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+/* القائمة الفرعية المخفية افتراضياً */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0; /* محاذاة القائمة لتبدأ من جهة اليمين وتهبط لأسفل بشكل متناسق LTR */
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    width: 180px;
+    padding: 10px 0 !important;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column !important; /* عرض العناصر عمودياً داخل الـ Dropdown */
+    gap: 0 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* إظهار القائمة المنسدلة بحركة انسيابية عند مرور الماوس */
+.user-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg); /* تدوير السهم الصغير لأعلى عند الفتح */
+}
+
+/* تخصيص روابط الـ Dropdown الداخلي */
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    color: #cbd5e1 !important;
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #38bdf8 !important;
+}
+
+/* خط فاصل أنيق قبل زر تسجيل الخروج */
+.dropdown-menu .divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.06);
+    margin: 6px 0;
+}
+
+.dropdown-menu .logout-link {
+    color: #f87171 !important; /* لون أحمر خفيف لزر تسجيل الخروج */
+}
+.dropdown-menu .logout-link:hover {
+    background-color: rgba(248, 113, 113, 0.08);
+}
+
+/* --- زر Register لغير المسجلين --- */
+.btn-register {
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    color: #090d16 !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
+}
+
+.btn-register:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4) !important;
+}
+
+
+.slkfjslk{
+    width: 90;
+    height: 90;
+    border-radius: 50%;
+    background-color: #ff0000;
+}
+
+.psefs{
+    background-color: #16313d;
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    text-align:center;
+}

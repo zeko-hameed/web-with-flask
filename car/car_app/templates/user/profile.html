@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block car %}
+<div class="form-wrapper">
+    <div class="form-container">
+        <h2 class="form-title"> updata your profile </h2>
+        
+        <form action="" method="post" novalidate enctype="multipart/form-data">
+            {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.username.label(class="form-label") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control is-invalid") }}
+                        {% for err in form.username.errors %}
+                            <span class="error-message">{{ err }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.username(class="form-control") }}
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    {{ form.email.label(class="form-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                        {% for err in form.email.errors %}
+                            <span class="error-message">{{ err }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email(class="form-control") }}
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    {{ form.profile_pitcir.label(class="form-label") }}
+                    {% if form.profile_pitcir.errors %}
+                        {{ form.profile_pitcir(class="form-control is-invalid") }}
+                        {% for err in form.profile_pitcir.errors %}
+                            <span class="error-message">{{ err }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.profile_pitcir(class="form-control") }}
+                    {% endif %}
+                </div>
+            <div class="form-group" id="pass" >
+                {{ form.password.label(class="form-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control is-invalid") }}
+                    {% for err in form.password.errors %}
+                        <span class="error-message">{{ err }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.password(class="form-control") }}
+                {% endif %}
+
+            </div>
+
+
+            <div class="form-submit-btn">
+                {{ form.submit(class="btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

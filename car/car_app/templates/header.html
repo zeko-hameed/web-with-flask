@@ -1,0 +1,39 @@
+<div class="main-header">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <h3>CAR</h3>
+        </div>
+        
+        
+        
+        <div class="nav-menu">
+            <ul>
+                {% if current_user.is_authenticated %}
+                
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('news') }}">News</a></li>
+                <li><a href="{{ url_for('all_users') }}">All Users</a></li>
+                
+                <li class="user-dropdown">
+                    <a href="#" class="dropdown-trigger">
+                        wellcome   {{ current_user.username }} <span class="arrow">▾</span>
+                    </a>
+                    
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('add_new_car') }}">Add New Car</a></li>
+                            <li><a href="{{ url_for('add_new_news') }}">Add New News</a></li>
+                            <li><a href="{{ url_for('profile' ) }}">profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ url_for('logout' ) }}" class="logout-link">Logout</a></li>
+                        </ul>
+                    </li>
+                    
+                {% else %}
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('create_account') }}" class="btn-register">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

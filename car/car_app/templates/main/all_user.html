@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block car %}
+    <div class="luxury-list-container">
+        {% if user %}
+            {% for users in user %} 
+                <div class="car-row-item">
+                    {% if users.image_file %}
+                        
+                    <div class="car-row-image">
+                        <img src="{{ url_for('static', filename='imges/' + users.image_file) }}" alt="{{ users.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="car-row-details">
+                        <h3 class="car-row-title">{{ users.email }}</h3>
+                        <p class="car-row-description">{{ users.username }}</p>
+
+                        <div class="car-row-footer">
+                            <p class="car-row-time">Created at: {{ users.created_at.strftime('%Y-%m-%d') }}</p>
+                            <!-- <p class="car-row-price">$150,000 <span>USD</span></p> -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1> there is not any users now </h1>
+        {% endif %}
+    </div>
+{% endblock %}
